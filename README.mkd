@@ -1,6 +1,7 @@
 # buffer-prefix-range
 
-> Easily define lexicographical ranges of byte strings using a prefix
+> Easily define lexicographical ranges of byte strings using a prefix. Can
+  be used to define ranges for queries in leveldb or similar databases.
 
 #### Node.js:
 [![Build Status](https://travis-ci.org//buffer-prefix-range.png)](https://travis-ci.org//buffer-prefix-range)
@@ -17,13 +18,38 @@ npm install --save buffer-prefix-range
 
 ## Usage
 
-## Development
+This library has one function which accepts a bytestring - 'prefix' - and
+returns an object that:
 
-Clone, install dependencies and re-test whenever some file is modified:
+- Contains two other bytestrings - 'start' and 'end' - where the set of all
+  bytestrings whose prefix are equal to 'prefix' is bounded by 'start' and
+  exclusively bounded by 'end'. In other words, if a bytestring is prefixed by
+  'prefix' then it will be greater or equal than 'start' and lesser than
+  'end'(lexicographically).
 
-```sh
-git clone git://github.com/tarruda/buffer-prefix-range.git
-cd buffer-prefix-range
-npm install
-grunt
+- Has a method 'contains' that tells if a bytestring is contained within
+  the lexicographical range of 'start' and 'end'
+
+Its main use case is to create queries in leveldb-style dbs(databases that have
+arbitrary bytestrings as keys) that filter out keys that are not prefixed
+by a certain key prefix. For example:
+
+```js
+> var level = require('level');
+> db = level('./mydb');
+> db.put('foo', ...);
+> db.put('foobar', ...);
+> db.put('foofoo', ...);
+> db.put('fobar', ...);
 ```
+
+Then suppose you want to query all entries that start with 'foo':
+
+```js
+> var bytePrefixRange = require('byte-prefix-range');
+> var range = bytePrefixRange('foo');
+> db.createReadStream({start: range.start, end: range.end});
+// will return 'foo', 'foobar' and 'foofoo'
+```
+
+Buffer objects or strings(which will be utf8-encoded) prefixes can be used.
