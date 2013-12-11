@@ -1,7 +1,7 @@
 {
   "name": "buffer-prefix-range",
   "description": "Easily define lexicographical ranges of byte strings using a prefix. Can be used to define ranges for queries in leveldb or similar databases",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/tarruda/buffer-prefix-range",
   "author": {
     "name": "Thiago de Arruda",
