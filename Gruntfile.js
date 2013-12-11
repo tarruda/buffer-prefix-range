@@ -15,15 +15,6 @@ module.exports = function(grunt) {
         files: [
           { src: 'test/**/*.js', dest: 'build/test.js' }
         ]
-      },
-      dist: {
-        options: {
-          export: 'lib/index.js',
-          compress: true
-        },
-        files: [
-          { src: 'lib/index.js', dest: 'build/<%= pkg.name %>.min.js' }
-        ]
       }
     },
 
