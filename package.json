@@ -1,0 +1,43 @@
+{
+  "name": "buffer-prefix-range",
+  "description": "Easily define lexicographical ranges of byte strings using a prefix",
+  "version": "0.0.0",
+  "homepage": "https://github.com/tarruda/buffer-prefix-range",
+  "author": {
+    "name": "Thiago de Arruda",
+    "email": "tpadilha84@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tarruda/buffer-prefix-range.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tarruda/buffer-prefix-range/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/tarruda/buffer-prefix-range/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "./index",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-livereload": "~0.1.2",
+    "grunt-mocha-debug": "~0.0.8",
+    "grunt-newer": "~0.5.4",
+    "powerbuild": "~0.0.9",
+    "grunt-saucelabs": "~4.1.2",
+    "grunt-exec-jshint": "~0.0.0",
+    "grunt-release": "~0.5.1"
+  },
+  "scripts": {
+    "test": "grunt ci"
+  },
+  "dependencies": {
+    "classic": "0.0.2",
+    "is-type": "0.0.1"
+  }
+}
