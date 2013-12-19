@@ -28,7 +28,7 @@
     "grunt-contrib-livereload": "~0.1.2",
     "grunt-mocha-debug": "~0.0.8",
     "grunt-newer": "~0.5.4",
-    "powerbuild": "~0.0.9",
+    "powerbuild": "~0.0.11",
     "grunt-exec-jshint": "~0.0.0",
     "grunt-release": "~0.5.1"
   },
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "classic": "0.0.2",
-    "is-type": "0.0.1"
+    "istype": "0.0.2"
   },
   "keywords": [
     "leveldb",

@@ -1,5 +1,5 @@
 var classic = require('classic');
-var is = require('is-type');
+var is = require('istype');
 
 
 function compare(l, r) {
